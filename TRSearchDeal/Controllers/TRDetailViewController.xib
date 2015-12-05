@@ -1,19 +1,73 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TRDetailViewController">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="nb7-Iq-0eX" id="3Wr-Dv-RSv"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="goq-V8-nCA" userLabel="头部View">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CnK-ka-jZz">
+                            <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="64" id="Uw6-Z6-EQA"/>
+                            </constraints>
+                            <state key="normal" image="icon_back">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="closeDetailView:" destination="-1" eventType="touchUpInside" id="gej-6e-iZI"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="团购详情" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fA9-tl-fWu">
+                            <rect key="frame" x="64" y="0.0" width="536" height="64"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="fA9-tl-fWu" firstAttribute="top" secondItem="goq-V8-nCA" secondAttribute="top" id="27J-6i-jVE"/>
+                        <constraint firstItem="fA9-tl-fWu" firstAttribute="leading" secondItem="CnK-ka-jZz" secondAttribute="trailing" id="4eZ-qg-Pyp"/>
+                        <constraint firstAttribute="bottom" secondItem="CnK-ka-jZz" secondAttribute="bottom" id="URu-Ov-erN"/>
+                        <constraint firstAttribute="bottom" secondItem="fA9-tl-fWu" secondAttribute="bottom" id="YCo-hd-dI1"/>
+                        <constraint firstItem="CnK-ka-jZz" firstAttribute="top" secondItem="goq-V8-nCA" secondAttribute="top" id="ZMo-22-0tw"/>
+                        <constraint firstAttribute="height" constant="64" id="aLa-Yc-Ksf"/>
+                        <constraint firstItem="CnK-ka-jZz" firstAttribute="leading" secondItem="goq-V8-nCA" secondAttribute="leading" id="ilO-SX-iLG"/>
+                        <constraint firstAttribute="trailing" secondItem="fA9-tl-fWu" secondAttribute="trailing" id="w4g-ba-6NL"/>
+                    </constraints>
+                </view>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nb7-Iq-0eX">
+                    <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </webView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="goq-V8-nCA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8ib-KV-vq2"/>
+                <constraint firstAttribute="trailing" secondItem="nb7-Iq-0eX" secondAttribute="trailing" id="BiI-z4-2v4"/>
+                <constraint firstItem="nb7-Iq-0eX" firstAttribute="top" secondItem="goq-V8-nCA" secondAttribute="bottom" id="POD-sh-e3i"/>
+                <constraint firstAttribute="bottom" secondItem="nb7-Iq-0eX" secondAttribute="bottom" id="e9T-cL-w8e"/>
+                <constraint firstAttribute="trailing" secondItem="goq-V8-nCA" secondAttribute="trailing" id="tIC-PK-6aV"/>
+                <constraint firstItem="goq-V8-nCA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wiY-ne-lRg"/>
+                <constraint firstItem="nb7-Iq-0eX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xyL-id-V79"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon_back" width="30" height="30"/>
+    </resources>
 </document>

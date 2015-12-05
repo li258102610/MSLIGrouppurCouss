@@ -1,19 +1,106 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TRRegionViewController">
             <connections>
+                <outlet property="mainTableView" destination="BM8-GS-P1m" id="HRh-6w-adZ"/>
+                <outlet property="subTableView" destination="zSi-a7-QoG" id="xIO-ON-DpH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="560"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUK-yB-bYw" userLabel="头部视图">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kn2-lf-Hjg">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <animations/>
+                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="titleEdgeInsets" minX="80" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="切换城市" image="btn_changeCity">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" image="btn_changeCity_selected"/>
+                            <connections>
+                                <action selector="clickChangeCity:" destination="-1" eventType="touchUpInside" id="JdN-PZ-AoX"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_cell_rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="7m0-au-btd">
+                            <rect key="frame" x="276" y="0.0" width="44" height="44"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="ibg-Kd-ErV"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" red="0.13333334029999999" green="0.58431375029999999" blue="0.1411764771" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="9V7-sz-cy9"/>
+                        <constraint firstAttribute="trailing" secondItem="Kn2-lf-Hjg" secondAttribute="trailing" id="KQo-ed-DBA"/>
+                        <constraint firstAttribute="bottom" secondItem="7m0-au-btd" secondAttribute="bottom" id="PCy-Qh-MyD"/>
+                        <constraint firstItem="7m0-au-btd" firstAttribute="top" secondItem="UUK-yB-bYw" secondAttribute="top" id="QTZ-cH-ojv"/>
+                        <constraint firstAttribute="bottom" secondItem="Kn2-lf-Hjg" secondAttribute="bottom" id="Rb9-LY-m4y"/>
+                        <constraint firstItem="Kn2-lf-Hjg" firstAttribute="leading" secondItem="UUK-yB-bYw" secondAttribute="leading" id="YGR-WP-qB1"/>
+                        <constraint firstItem="Kn2-lf-Hjg" firstAttribute="top" secondItem="UUK-yB-bYw" secondAttribute="top" id="gPY-eH-bfG"/>
+                        <constraint firstAttribute="trailing" secondItem="7m0-au-btd" secondAttribute="trailing" id="iCZ-qq-f5l"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BM8-GS-P1m" userLabel="主TableView">
+                    <rect key="frame" x="0.0" y="44" width="160" height="516"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="uk6-Kd-aH5"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="8BQ-uq-HcO"/>
+                        <outlet property="delegate" destination="-1" id="FNt-HJ-uoD"/>
+                    </connections>
+                </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zSi-a7-QoG" userLabel="子TableView">
+                    <rect key="frame" x="160" y="44" width="160" height="516"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="Mc4-Fe-dSU"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="oJb-ZX-5r3"/>
+                        <outlet property="delegate" destination="-1" id="ON1-F4-rc8"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="BM8-GS-P1m" secondAttribute="bottom" id="0NL-HC-Ej0"/>
+                <constraint firstItem="UUK-yB-bYw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1RN-a7-3bo"/>
+                <constraint firstItem="BM8-GS-P1m" firstAttribute="top" secondItem="UUK-yB-bYw" secondAttribute="bottom" id="2bO-lN-qSm"/>
+                <constraint firstAttribute="trailing" secondItem="zSi-a7-QoG" secondAttribute="trailing" id="END-Lp-maF"/>
+                <constraint firstAttribute="bottom" secondItem="zSi-a7-QoG" secondAttribute="bottom" id="ITB-Gw-kAQ"/>
+                <constraint firstAttribute="trailing" secondItem="UUK-yB-bYw" secondAttribute="trailing" id="KgD-Qr-lu5"/>
+                <constraint firstItem="UUK-yB-bYw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NAu-3p-Lpn"/>
+                <constraint firstItem="zSi-a7-QoG" firstAttribute="top" secondItem="UUK-yB-bYw" secondAttribute="bottom" id="Z4K-Oa-W51"/>
+                <constraint firstItem="BM8-GS-P1m" firstAttribute="width" secondItem="zSi-a7-QoG" secondAttribute="width" id="sFj-d7-Ghh"/>
+                <constraint firstItem="BM8-GS-P1m" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wcq-nS-1QZ"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="btn_changeCity" width="30" height="30"/>
+        <image name="btn_changeCity_selected" width="30" height="30"/>
+        <image name="icon_cell_rightArrow" width="17" height="17"/>
+    </resources>
 </document>

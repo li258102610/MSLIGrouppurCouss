@@ -1,10 +1,10 @@
 //
 //  main.m
-//  TRSearchDeal
+//  我是团购
 //
-//  Created by tarena on 15/10/26.
-//  Copyright (c) 2015年 tarena. All rights reserved.
-//
+//  Created by 李聪 on 15/12/3.
+//  Copyright © 2015年 李聪. All rights reserved.
+//https://github.com/li258102610/MSLIGrouppurchase
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"

@@ -1,14 +1,15 @@
 //
 //  TRDetailViewController.m
-//  TRSearchDeal
+//  我是团购
 //
-//  Created by tarena on 15/10/30.
-//  Copyright (c) 2015年 tarena. All rights reserved.
-//
+//  Created by 李聪 on 15/12/3.
+//  Copyright © 2015年 李聪. All rights reserved.
+//https://github.com/li258102610/MSLIGrouppurchase
 
 #import "TRDetailViewController.h"
 
 @interface TRDetailViewController ()
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
@@ -16,12 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    //加载团购详情的h5页面
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.deal.deal_h5_url]]];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (IBAction)closeDetailView:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*
